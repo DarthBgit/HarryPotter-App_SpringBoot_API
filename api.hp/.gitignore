@@ -31,3 +31,12 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Copilot ###
+copilot.data
+
+### IDE Configuration ###
+Project_Default
+misc.xml
+
+

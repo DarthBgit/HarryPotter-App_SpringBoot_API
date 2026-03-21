@@ -18,18 +18,18 @@ public interface IMagicObjects extends JpaRepository<MagicObjects,Integer> {
     @Query(value = "SELECT * FROM object WHERE name = :name", nativeQuery = true)
     public MagicObjects findByName(String name);
 
-    @Query(value = "SELECT * FROM object where is_horocruxe = true", nativeQuery = true)
+    @Query(value = "SELECT * FROM object where is_horocruxe = 1", nativeQuery = true)
     public Page<MagicObjects> findHorocruxesList(Pageable pageable);
 
-    @Query(value = "SELECT * FROM object where is_hollow = true", nativeQuery = true)
+    @Query(value = "SELECT * FROM object where is_hollow = 1", nativeQuery = true)
     public Page<MagicObjects> findHollowList(Pageable pageable);
 
-    @Query(value = "SELECT * FROM object where is_wander = true", nativeQuery = true)
+    @Query(value = "SELECT * FROM object where is_wander = 1", nativeQuery = true)
     public Page<MagicObjects> findWanderList(Pageable pageable);
 
-    @Query(value = "SELECT * FROM object where is_other = true", nativeQuery = true)
+    @Query(value = "SELECT * FROM object where is_other = 1", nativeQuery = true)
     public Page<MagicObjects> findOthersObjectsList(Pageable pageable);
 
-    @Query(value = "SELECT * FROM object where is_quiddich = true", nativeQuery = true)
+    @Query(value = "SELECT * FROM object where is_quiddich = 1", nativeQuery = true)
     public Page<MagicObjects> findQuddichObjectsList(Pageable pageable);
 }
