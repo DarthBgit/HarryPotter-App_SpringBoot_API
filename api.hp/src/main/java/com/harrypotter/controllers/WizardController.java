@@ -2,12 +2,15 @@ package com.harrypotter.controllers;
 
 import java.util.List;
 
-import com.harrypotter.entities.Wizard;
+import com.harrypotter.dto.WizardResponseDto;
 import com.harrypotter.services.WizardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @CrossOrigin(origins = { "http://localhost:4200" })
 @RestController
@@ -18,17 +21,22 @@ public class WizardController {
     private WizardService wizardService;
 
     @GetMapping("/pages/{page}")
-    public Page<Wizard> findAllSorted(@PathVariable Integer page) {
+    public Page<WizardResponseDto> findAllSorted(@PathVariable Integer page) {
         return wizardService.findAllSorted(PageRequest.of(page, 8));
     }
 
+    @GetMapping("/id/{id}")
+    public WizardResponseDto findById(@PathVariable Integer id) {
+        return wizardService.findById(id);
+    }
+
     @GetMapping("/{name}")
-    public Wizard findByName(@PathVariable String name) {
+    public WizardResponseDto findByName(@PathVariable String name) {
         return wizardService.findByName(name);
     }
 
     @GetMapping("/search/{criteria}/{name}")
-    public List<Wizard> searcherWizard(
+    public List<WizardResponseDto> searcherWizard(
             @PathVariable String criteria,
             @PathVariable String name){
         return switch (criteria) {
@@ -39,7 +47,7 @@ public class WizardController {
     }
 
     @GetMapping("/{criteria}/{page}")
-    public Page<Wizard> findByCriteria(
+    public Page<WizardResponseDto> findByCriteria(
             @PathVariable String criteria,
             @PathVariable Integer page) {
 
@@ -51,5 +59,21 @@ public class WizardController {
             case "others" -> wizardService.findOthersList(PageRequest.of(page, 8));
             default -> throw new IllegalArgumentException("Invalid criteria: " + criteria);
         };
+    }
+
+    @PostMapping
+    public WizardResponseDto createWizard(@Valid @RequestBody WizardResponseDto wizardDto) {
+        return wizardService.createWizard(wizardDto);
+    }
+
+    @PutMapping("/id/{id}")
+    public WizardResponseDto updateWizard(@PathVariable Integer id, @Valid @RequestBody WizardResponseDto wizardDto) {
+        return wizardService.updateWizard(id, wizardDto);
+    }
+
+    @DeleteMapping("/id/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteWizard(@PathVariable Integer id) {
+        wizardService.deleteWizard(id);
     }
 }

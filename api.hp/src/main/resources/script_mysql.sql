@@ -25,14 +25,14 @@ DROP TABLE IF EXISTS `creature_tag`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `creature_tag` (
-  `id` int NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  `resume` mediumtext,
-  `phrase` mediumtext,
-  `life` mediumtext,
-  `picture` varchar(100) DEFAULT NULL,
-  `creatures_tags` int DEFAULT NULL,
-  PRIMARY KEY (`id`)
+                                `id` int NOT NULL,
+                                `name` varchar(45) DEFAULT NULL,
+                                `resume` mediumtext,
+                                `phrase` mediumtext,
+                                `life` mediumtext,
+                                `picture` varchar(100) DEFAULT NULL,
+                                `creatures_tags` int DEFAULT NULL,
+                                PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -54,14 +54,14 @@ DROP TABLE IF EXISTS `creatures`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `creatures` (
-  `id` int NOT NULL,
-  `raze` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `picture` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `phrase` mediumtext COLLATE utf8mb4_general_ci,
-  `resume` mediumtext COLLATE utf8mb4_general_ci,
-  `danger` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  `classification` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`id`)
+                             `id` int NOT NULL,
+                             `raze` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+                             `picture` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+                             `phrase` mediumtext COLLATE utf8mb4_general_ci,
+                             `resume` mediumtext COLLATE utf8mb4_general_ci,
+                             `danger` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+                             `classification` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+                             PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -83,16 +83,16 @@ DROP TABLE IF EXISTS `object`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `object` (
-  `id` int NOT NULL,
-  `name` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `info` mediumtext COLLATE utf8mb4_general_ci,
-  `picture` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `is_horocruxe` tinyint DEFAULT NULL,
-  `is_hollow` tinyint DEFAULT NULL,
-  `is_wander` tinyint DEFAULT NULL,
-  `is_other` tinyint DEFAULT NULL,
-  `is_quiddich` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`id`)
+                          `id` int NOT NULL,
+                          `name` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+                          `info` mediumtext COLLATE utf8mb4_general_ci,
+                          `picture` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+                          `is_horocruxe` tinyint DEFAULT NULL,
+                          `is_hollow` tinyint DEFAULT NULL,
+                          `is_wander` tinyint DEFAULT NULL,
+                          `is_other` tinyint DEFAULT NULL,
+                          `is_quiddich` tinyint DEFAULT NULL,
+                          PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -114,28 +114,28 @@ DROP TABLE IF EXISTS `wizard`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `wizard` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `familyname` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `age` int DEFAULT NULL,
-  `picture` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `rol` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `actor` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `bibliography` longtext COLLATE utf8mb4_general_ci,
-  `facemember` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `housename` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `color` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `blood` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `patronus` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `wander_info` mediumtext COLLATE utf8mb4_general_ci,
-  `animals_fantastics` tinytext COLLATE utf8mb4_general_ci,
-  `mortifago` tinyint DEFAULT NULL,
-  `teacher` tinyint DEFAULT NULL,
-  `student` tinyint DEFAULT NULL,
-  `others` tinyint DEFAULT NULL,
-  `wizards_objects` int DEFAULT NULL,
-  `wizards_wanders` int DEFAULT NULL,
-  PRIMARY KEY (`id`)
+                          `id` int NOT NULL AUTO_INCREMENT,
+                          `name` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+                          `familyname` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+                          `age` int DEFAULT NULL,
+                          `picture` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+                          `rol` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+                          `actor` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+                          `bibliography` longtext COLLATE utf8mb4_general_ci,
+                          `facemember` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+                          `housename` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+                          `color` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+                          `blood` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+                          `patronus` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+                          `wander_info` mediumtext COLLATE utf8mb4_general_ci,
+                          `animals_fantastics` tinytext COLLATE utf8mb4_general_ci,
+                          `mortifago` tinyint DEFAULT NULL,
+                          `teacher` tinyint DEFAULT NULL,
+                          `student` tinyint DEFAULT NULL,
+                          `others` tinyint DEFAULT NULL,
+                          `wizards_objects` int DEFAULT NULL,
+                          `wizards_wanders` int DEFAULT NULL,
+                          PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=247 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

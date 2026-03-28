@@ -1,24 +1,20 @@
-package com.harrypotter.entities;
+package com.harrypotter.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import javax.persistence.*;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.util.HashSet;
 import java.util.Set;
 
-@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Creature {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class CreatureResponseDto {
     private Integer id;
   @NotBlank(message = "raze is required")
   @Size(max = 100, message = "raze must not exceed 100 characters")
@@ -32,14 +28,10 @@ public class Creature {
     private String classification;
   @NotBlank(message = "danger is required")
   @Pattern(regexp = "yes|no", message = "danger must be either 'yes' or 'no'")
-    private String danger; //To manage styles in front end
+    private String danger;
   @NotBlank(message = "picture is required")
   @Size(max = 100, message = "picture must not exceed 100 characters")
     private String picture;
-
-    /**
-     * Relation with Tags
-     */
-    @OneToMany(mappedBy = "ct")
-    private Set<CreatureTag> tags = new HashSet<>();
+    private Set<CreatureTagResponseDto> tags;
 }
+

@@ -1,18 +1,32 @@
-﻿-- Create the database (Run this first, then connect to it)
+﻿-- PostgreSQL dump of Harry Potter API database
+-- Translated from MySQL to PostgreSQL
+-- Original: MySQL 8.0.33
+-- Converted: 2026-03-21
+
+-- Create the database (Run this first, then connect to it)
 -- CREATE DATABASE api_harry_potter;
 -- \c api_harry_potter;
 
--- Table structure for table creature_tag
+-- Set encoding to UTF-8
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET TIME ZONE 'UTC';
+
+-- Drop existing tables if they exist
+DROP TABLE IF EXISTS wizard CASCADE;
+DROP TABLE IF EXISTS object CASCADE;
+DROP TABLE IF EXISTS creatures CASCADE;
 DROP TABLE IF EXISTS creature_tag CASCADE;
 
+-- Table structure for table creature_tag
 CREATE TABLE creature_tag (
-                              id INTEGER PRIMARY KEY,
-                              name VARCHAR(45) DEFAULT NULL,
-                              resume TEXT,
-                              phrase TEXT,
-                              life TEXT,
-                              picture VARCHAR(100) DEFAULT NULL,
-                              creatures_tags INTEGER DEFAULT NULL
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(45),
+    resume TEXT,
+    phrase TEXT,
+    life TEXT,
+    picture VARCHAR(100),
+    creatures_tags INTEGER
 );
 
 -- Dumping data for table creature_tag
@@ -105,7 +119,7 @@ CREATE TABLE object (
                         is_hollow SMALLINT DEFAULT NULL,
                         is_wander SMALLINT DEFAULT NULL,
                         is_other SMALLINT DEFAULT NULL,
-                        is_quiddich VARCHAR(45) DEFAULT NULL
+                        is_quiddich SMALLINT DEFAULT NULL
 );
 
 -- Insert all magical objects data
